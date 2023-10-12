@@ -1,0 +1,34 @@
+public class bubble{
+    public static void main(String[] args){
+        
+        String text = "To be or not to be, that is the question; "
+                + "Whether `tis nobler in the mind to suffer "
+                + "the slings and arrows of outrageous fortune, "
+                + "or to take arms against a sea of troubles, "
+                + "and by opposing end them?";
+
+        String[] seperation= text.split("[\\s\\p{Punct}]+");
+        
+        for (int i = 0; i < seperation.length - 1; i++) {
+            
+            for (int j = 0; j < seperation.length - i - 1; j++) {
+                
+                if (seperation[j].compareToIgnoreCase(seperation[j + 1]) > 0) {
+                    
+                    String temp = seperation[j];
+                    seperation[j] = seperation[j + 1];
+                    seperation[j + 1] = temp;
+                }
+            }
+        }
+
+        System.out.println("Sorted words:");
+        
+        for (String word : seperation) {
+            System.out.println(word);
+        }
+
+
+    }
+    
+}
